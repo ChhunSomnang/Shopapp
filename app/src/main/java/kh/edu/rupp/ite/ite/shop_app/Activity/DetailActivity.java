@@ -1,13 +1,16 @@
 package kh.edu.rupp.ite.ite.shop_app.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 import com.bumptech.glide.Glide;
 
 import kh.edu.rupp.ite.ite.shop_app.Helper.ManagmentCart;
+import kh.edu.rupp.ite.ite.shop_app.R;
 import kh.edu.rupp.ite.ite.shop_app.databinding.ActivityDetailBinding;
 import kh.edu.rupp.ite.ite.shop_app.domain.PopularDomain;
 
@@ -25,8 +28,12 @@ public class DetailActivity extends AppCompatActivity {
 
         getBundles();
         managmentCart=new ManagmentCart(this);
+        statusBarColor();
     }
-
+    private void statusBarColor() {
+        Window window = DetailActivity.this.getWindow();
+        ((Window) window).setStatusBarColor(ContextCompat.getColor(DetailActivity.this, R.color.white));
+    }
     private void getBundles() {
         object = (PopularDomain) getIntent().getSerializableExtra("object");
 
